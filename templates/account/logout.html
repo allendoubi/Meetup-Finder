@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+<header>
+
+	<nav class="navbar navbar-light bg-light">
+        <div class = "container">
+		<a class="navbar-brand" href="#">AAAM Meetup Finder</a>
+		<ul class="nav">
+            <li class="nav-item active">
+				<a class="nav-link" href="/">HOME</a>
+			</li>
+		</ul>
+            </div>
+	</nav>
+
+</header>
+
+<div class = "text-center">
+  <h1> Click the button to sign out of your account. </h1>
+<form method="post" action="{% url 'account_logout' %}">
+  {% csrf_token %}
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+  {% endif %}
+  <button type="submit" class="btn btn-primary btn-lg">LOGOUT</button>
+</form>
+</div>
+
+
